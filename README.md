@@ -5,6 +5,13 @@ AMButton is derived from Analog Multi-Button, it's a library to detect
 button press events on a setup where multiple buttons are connected
 to a single Arduino analog pin.
 
+I have tested this library with 3 buttons only, but it has the potential
+of supporting up to 10 buttons (limit coded).
+
+This library does debounce by checking 3 times for the same value before
+"committing" a button event. It includes 3 types of button events: press, 
+long press and release.
+
 I've developed this library to abstract the button handling on a 
 personal project and decided to share. I'm not actively maintaining, 
 enhancing or giving support to it, but it's open source, use at your
