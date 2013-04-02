@@ -1,13 +1,8 @@
-#include "Arduino.h"
 #include "AMButton.h"
 
 extern "C" {
   typedef void (*buttonHandle)(int, byte);
 }
-
-// Button constants
-static byte scanPeriod = 40;
-static byte debouncePeriods = 3;
 
 // Button variables
 boolean longPress = false;
@@ -18,8 +13,8 @@ int pressedButton = -1;
 unsigned int buttonsThreashold[10];
 unsigned int longPressDuration;
 unsigned int debounceTime;
-long time;
-long buttonPressTime;
+unsigned long time;
+unsigned long buttonPressTime;
 buttonHandle buttonHandler;
 
 AMButton::AMButton(int bPin, byte bCount, int lpDuration, void (*bHandle)(int, byte)) {
@@ -33,7 +28,7 @@ AMButton::AMButton(int bPin, byte bCount, int lpDuration, void (*bHandle)(int, b
   }
 }
 
-void AMButton::Read() {
+void AMButton::scan() {
   if (millis() - time > scanPeriod) {
     int val = analogRead(buttonPin);
     int i = buttonCount-1;

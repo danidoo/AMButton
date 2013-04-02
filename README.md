@@ -13,21 +13,21 @@ will. I'm not going to be liable for any damage you may cause.
 Using AMButton
 ==============
 
-To use AMButton you should:
+To use AMButton you should follow this steps:
 
-* Connect the buttons following the diagram on:
+* Connect the buttons with equal value resistors following the diagram on:
    http://rayshobby.blogspot.com.br/2010/08/multiple-button-inputs-using-arduino.html
 
 * Include the library on your software.
 
-* Initialize the AMButton class with the apropriate parameters:
+* Create a Callback function to deal with the button pressing events:
+  ex.: button_callback(button_pressed, action_taken)
+  Where action can be: PRESS, RELEASE or LONGPRESS
+
+* Initialize the AMButton class with the appropriate parameters:
   AMButton(pin_number, number_of_buttons_connected, long_press_duration, callback_function)
 
-* Place the button.Read() fuction on your loop to constantly scan the pin for pressed buttons.
-
-* Develop your Callback function to deal with the button pressing events:
-  button_callback(button_pressed, action_taken)
-  Where action can be: PRESS, RELEASE or LONGPRESS
+* Place the instance.read() function on your loop to constantly scan the pin for pressed buttons.
 
 Getting AMButton
 ================

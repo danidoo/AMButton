@@ -6,11 +6,13 @@
 #define PRESS 0
 #define LONGPRESS 1
 #define RELEASE 2
+#define scanPeriod 40
+#define debouncePeriods 3
 
 class AMButton {
   public:
     AMButton(int bPin, byte bCount, int lpDuration, void (*bHandle)(int, byte));
-    void Read(void);
+    void scan(void);
   private:
     void sameButtonPress();
     void differentButtonPress(int button);
